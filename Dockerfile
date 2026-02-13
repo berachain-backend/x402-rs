@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 COPY . ./
+RUN echo "$ENV_CONFIG_JSON" > /app/config.json
 RUN cargo build --package x402-facilitator --features full --release --locked
 
 # --- Stage 2 ---
