@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 
 WORKDIR /app
 
-RUN echo "$ENV_CONFIG_JSON" > /app/config.json
 COPY --from=builder /app/target/release/x402-facilitator /usr/local/bin/x402-facilitator
 
 EXPOSE $PORT
